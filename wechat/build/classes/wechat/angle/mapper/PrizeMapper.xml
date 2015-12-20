@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="PrizeDao">
+	<!-- 查看所有 -->
+	<select id="getPrize" resultType="wechat.angle.bean.Prize">
+		SELECT * FROM t_prize
+	</select>
+	<!-- 查看单个 -->
+	<select id="getPrizeOne" parameterType="int" resultType="wechat.angle.bean.Prize">
+		SELECT *
+		FROM t_prize WHERE t_id=#{id}
+	</select>
+	<!-- 新增数据 -->
+	<insert id="insertPrize" parameterType="Map">
+		INSERT INTO
+		t_prize(t_prizename) VALUES(#{name})
+	</insert><!-- map -->
+	<!-- 更新数据 -->
+	<update id="update" parameterType="Map">
+		UPDATE t_prize SET t_prizename=#{name} WHERE t_id=#{id}
+	</update>
+	<!-- 删除数据 -->
+	<update id="delPrize" parameterType="Map">
+		DELETE FROM t_prize WHERE t_id=#{id}
+	</update>
+</mapper>
